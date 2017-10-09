@@ -1,0 +1,46 @@
+{
+                    Console.WriteLine("Veuillez créer votre liste de cadeaux");
+
+                    Console.WriteLine("Combien d'articles voulez vous ajouter dans la liste ?");
+                    string nbArticleStr = Console.ReadLine();
+
+                    int nbArticle;
+                    while (!int.TryParse(nbArticleStr, out nbArticle))
+                    {
+                        Console.WriteLine("erreur! Recommencez !");
+                        nbArticleStr = Console.ReadLine();
+                    }
+
+
+                    Console.WriteLine("Le nombre rentré est correct");
+
+                    List<ArticlePrefere> listePreferee = new List<ArticlePrefere>();
+
+                    for (int i = 0; i < nbArticle; i++)
+                    {
+                        Console.WriteLine("Ajouter le nom de l'article");
+
+                        string nomArticle = Console.ReadLine();
+
+                        Console.WriteLine("Ajouter le prix de l'article ?");
+
+                        // Lecture du prix en string
+                        string prixStr = Console.ReadLine();
+                        // Conversion du prixString en prixEntier dans une condition
+                        decimal prix;
+                        while (!decimal.TryParse(prixStr, out prix))
+                        {
+                            Console.WriteLine("erreur! Recommencez !");
+                            prixStr = Console.ReadLine();
+                        }
+
+                        // On garde les données rentrées dans l'ordinateur dans une variable article 
+                        Article article = new Article(nomArticle, prix);
+                        Console.WriteLine(article.ToString());
+
+                        // On veut associer un article à une préférence 
+                        Console.WriteLine("Veuillez ajouter un nombre entre 1 et 5 pour donner votre préférence");
+
+                    if (i < (nbArticle - 1))
+                        Console.WriteLine("Veuillez entrer le cadeau suivant");
+}
